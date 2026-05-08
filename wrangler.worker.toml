@@ -1,0 +1,34 @@
+name = "my-pageagent"
+main = "worker/index.js"
+compatibility_date = "2026-05-08"
+workers_dev = true
+routes = [
+  { pattern = "pageagent.space/*", zone_name = "pageagent.space" },
+  { pattern = "www.pageagent.space/*", zone_name = "pageagent.space" }
+]
+
+[vars]
+CREEM_API_BASE = "https://api.creem.io"
+CREEM_ENV = "live"
+
+[assets]
+directory = "./dist"
+binding = "SITE_ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = [
+  "/",
+  "/page-agent-extension",
+  "/page-agent-js",
+  "/page-agent-ai",
+  "/page-agent-openclaw",
+  "/page-agent-github",
+  "/page-agent-example",
+  "/page-agent-alibaba",
+  "/page-agent-mcp",
+  "/pricing",
+  "/privacy",
+  "/terms",
+  "/sitemap.xml",
+  "/robots.txt",
+  "/api/*"
+]

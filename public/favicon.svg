@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PageAgent Space">
+  <defs>
+    <linearGradient id="pa-g" x1="8" x2="56" y1="58" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f766e" />
+      <stop offset=".52" stop-color="#2563eb" />
+      <stop offset="1" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#101613" />
+  <path d="M18 48V16h13c8 0 14 5 14 13s-6 13-14 13h-5v6h-8Zm8-14h5c4 0 7-2 7-5s-3-5-7-5h-5v10Z" fill="url(#pa-g)" />
+  <path d="M42 48 31 20h8l11 28h-8Z" fill="#ecfeff" opacity=".9" />
+  <path d="M13 18c10-5 24-5 38 0M14 50c12 4 25 2 38-6" fill="none" stroke="#ecfeff" stroke-width="3" stroke-linecap="round" opacity=".82" />
+</svg>
