@@ -1,0 +1,21 @@
+# Page Agent
+
+PageAgent Space helps SaaS teams launch a page agent with in-page JavaScript control, action guardrails, analytics, and centered Creem checkout.
+
+Website: https://pageagent.space/
+Pricing: https://pageagent.space/pricing/
+Checkout: https://pageagent.space/checkout/
+Support: support@aigeamy.com
+Type: Hosted SaaS workflow product
+
+Problem:
+- Teams need a quotable product definition, pricing path, evidence trail, and checkout route.
+
+Solution:
+- Page Agent provides a hosted workflow with public pricing, structured evidence, support contact, and report or receipt outputs.
+
+Useful pages:
+- Home: https://pageagent.space/
+- Pricing: https://pageagent.space/pricing/
+- Resources: https://pageagent.space/resources/
+- Sitemap: https://pageagent.space/sitemap.xml

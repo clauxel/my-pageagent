@@ -320,8 +320,8 @@ async function readJsonResponse<T>(response: Response): Promise<T | null> {
   }
 }
 
-async function createCheckoutSession(planId: PlanId, billing: Billing) {
-  const response = await fetch(resolveApiUrl('/api/checkout'), {
+async function createCheckoutSession(planId: PlanId, billing: Billing, endpoint = '/api/checkout') {
+  const response = await fetch(resolveApiUrl(endpoint), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ planId, billing }),
@@ -511,7 +511,7 @@ export default function App() {
     navigate('/pricing#pricing')
   }
 
-  async function startHostedCheckout(planId: PlanId, cycle: Billing, loadingKey: string) {
+  async function startHostedCheckout(planId: PlanId, cycle: Billing, loadingKey: string, provider = 'creem') {
     setSelectedPlanId(planId)
     setBilling(cycle)
     setCheckoutLoadingKey(loadingKey)
@@ -521,7 +521,7 @@ export default function App() {
     const popup = openCenteredCheckoutWindow()
 
     try {
-      const checkoutUrl = await createCheckoutSession(planId, cycle)
+      const checkoutUrl = await createCheckoutSession(planId, cycle, provider === 'nowpayments' ? '/api/nowpayments-checkout' : '/api/checkout')
       const opened = sendPopupToCheckout(popup, checkoutUrl)
 
       setCheckoutLoadingKey(null)
@@ -805,6 +805,14 @@ export default function App() {
                   >
                     {checkoutLoadingKey === loadingKey ? 'Opening secure checkout...' : plan.id === 'pro' ? ctaCheckout : `Checkout ${plan.shortName} ${billing}`}
                   </button>
+                <button
+                  type="button"
+                  className="df-btn df-btn-ghost"
+                  onClick={() => void startHostedCheckout(plan.id, billing, `${loadingKey}-wallet`, 'nowpayments')}
+                  disabled={checkoutLoadingKey !== null}
+                >
+                  {checkoutLoadingKey === `${loadingKey}-wallet` ? 'Opening USDC wallet...' : 'Pay with USDC Wallet'}
+                </button>
                   {active ? <span className="df-plan-selected">Selected</span> : null}
                 </div>
               </article>
@@ -932,7 +940,7 @@ export default function App() {
             </div>
             <p className="df-payment-note">
               <CheckCircle2 size={16} />
-              <span>Pro annual selected. Annual saves 50%.</span>
+              <span>Pro annual selected. Annual saves 50%. Hosted SaaS: pay here, then use the managed workspace; no self-hosting needed.</span>
             </p>
 
             <div className="df-trust-row">
