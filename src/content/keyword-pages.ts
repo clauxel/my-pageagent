@@ -173,7 +173,7 @@ export const keywordPages: KeywordPage[] = [
       {
         heading: 'How payment stays aligned with trust',
         paragraphs: [
-          'The pricing flow keeps Pro annual selected because serious Page-agent AI deployments require workflow design, safety review, and analytics. Checkout opens in a centered Creem window so the buyer never loses the product context.',
+          'The pricing flow keeps Pro annual selected because serious Page-agent AI deployments require workflow design, safety review, and analytics. Checkout opens in a centered Polar window so the buyer never loses the product context.',
         ],
       },
     ],
@@ -344,7 +344,7 @@ export const keywordPages: KeywordPage[] = [
       {
         heading: 'Why the example leads to pricing',
         paragraphs: [
-          'A buyer who understands the workflow is more likely to choose a plan confidently. That is why the site moves from the fit console to pricing, keeps Pro annual selected, and opens Creem checkout only after the buyer clicks Checkout.',
+          'A buyer who understands the workflow is more likely to choose a plan confidently. That is why the site moves from the fit console to pricing, keeps Pro annual selected, and opens Polar checkout only after the buyer clicks Checkout.',
         ],
       },
     ],

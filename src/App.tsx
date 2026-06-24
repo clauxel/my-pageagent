@@ -100,7 +100,7 @@ const plans: Array<{
 const proofItems = [
   { label: 'Default plan', value: 'Pro', detail: 'Middle tier selected before checkout' },
   { label: 'Annual savings', value: '50%', detail: 'Annual billing is active by default' },
-  { label: 'Checkout flow', value: 'Popup', detail: 'Creem opens centered while this page stays visible' },
+  { label: 'Checkout flow', value: 'Popup', detail: 'Polar opens centered while this page stays visible' },
   { label: 'Launch scope', value: '1st workflow', detail: 'Start with one valuable page action lane' },
 ]
 
@@ -167,7 +167,7 @@ const legalPrivacySections = [
   {
     title: 'Service providers and third parties',
     paragraphs: [
-      'We use service providers such as Cloudflare for hosting, security, routing, and analytics infrastructure, and Creem for hosted checkout and payment processing.',
+      'We use service providers such as Cloudflare for hosting, security, routing, and analytics infrastructure, and Polar for hosted checkout and payment processing.',
       'Payment details are handled by the payment provider. We do not ask users to send card numbers, API keys, passwords, private keys, or production secrets through email or this public fit console.',
       'Third-party services process information under their own terms and privacy practices. Do not proceed with checkout or external links if you do not accept those practices.',
     ],
@@ -226,7 +226,7 @@ const legalTermsSections = [
   {
     title: 'Payments, renewals, and refunds',
     paragraphs: [
-      'Payments are processed by Creem in a hosted popup window. Successful checkouts return the user to the homepage.',
+      'Payments are processed by Polar in a hosted popup window. Successful checkouts return the user to the homepage.',
       'Displayed annual pricing reflects a 50% discount versus the monthly run-rate for the same plan. Prices, plan names, features, and availability may change before purchase.',
       'Unless a separate written agreement says otherwise, purchases are final to the maximum extent permitted by law. If the payment provider, consumer law, or a written policy requires a refund, that required rule controls.',
       'Chargebacks, payment abuse, or attempted circumvention of checkout may result in suspension, cancellation, or refusal of service.',
@@ -243,7 +243,7 @@ const legalTermsSections = [
   {
     title: 'Third-party services',
     paragraphs: [
-      'Cloudflare, Creem, GitHub, model providers, browser tools, infrastructure providers, and other third-party services may be involved in hosting, checkout, integrations, or customer workflows.',
+      'Cloudflare, Polar, GitHub, model providers, browser tools, infrastructure providers, and other third-party services may be involved in hosting, checkout, integrations, or customer workflows.',
       'We are not responsible for third-party services, third-party outages, payment provider decisions, external repositories, external links, open-source project changes, or third-party terms.',
       'Your use of third-party services is governed by the applicable third-party terms, privacy policies, account rules, and fees.',
     ],
@@ -511,7 +511,7 @@ export default function App() {
     navigate('/pricing#pricing')
   }
 
-  async function startHostedCheckout(planId: PlanId, cycle: Billing, loadingKey: string, provider = 'creem') {
+  async function startHostedCheckout(planId: PlanId, cycle: Billing, loadingKey: string, provider = 'polar') {
     setSelectedPlanId(planId)
     setBilling(cycle)
     setCheckoutLoadingKey(loadingKey)
@@ -521,7 +521,7 @@ export default function App() {
     const popup = openCenteredCheckoutWindow()
 
     try {
-      const checkoutUrl = await createCheckoutSession(planId, cycle, provider === 'nowpayments' ? '/api/nowpayments-checkout' : '/api/checkout')
+      const checkoutUrl = await createCheckoutSession(planId, cycle, provider === 'polar' ? '/api/polar-checkout' : '/api/checkout')
       const opened = sendPopupToCheckout(popup, checkoutUrl)
 
       setCheckoutLoadingKey(null)
@@ -808,7 +808,7 @@ export default function App() {
                 <button
                   type="button"
                   className="df-btn df-btn-ghost"
-                  onClick={() => void startHostedCheckout(plan.id, billing, `${loadingKey}-wallet`, 'nowpayments')}
+                  onClick={() => void startHostedCheckout(plan.id, billing, `${loadingKey}-wallet`, 'polar')}
                   disabled={checkoutLoadingKey !== null}
                 >
                   {checkoutLoadingKey === `${loadingKey}-wallet` ? 'Opening USDC wallet...' : 'Pay with USDC Wallet'}
@@ -832,7 +832,7 @@ export default function App() {
             </article>
             <article>
               <h3>Does payment replace this page?</h3>
-              <p>No. Checkout opens in a centered Creem popup and the product page stays visible behind a blurred overlay.</p>
+              <p>No. Checkout opens in a centered Polar popup and the product page stays visible behind a blurred overlay.</p>
             </article>
           </div>
         ) : null}
@@ -861,14 +861,14 @@ export default function App() {
           {checkoutModal.status === 'loading' ? (
             <div className="df-checkout-loading">
               <span aria-hidden />
-              Preparing secure Creem checkout for {plan.name} {checkoutModal.billing}...
+              Preparing secure Polar checkout for {plan.name} {checkoutModal.billing}...
             </div>
           ) : (
             <div className="df-checkout-copy">
               <p className="df-eyebrow">Secure checkout</p>
               <h2>{checkoutModal.status === 'popup' ? 'Payment window is open.' : 'Open the payment window.'}</h2>
               <p>
-                {plan.name} {checkoutModal.billing} is selected at {formatMoney(billedMonthly)}/mo. The original page stays here while Creem handles payment.
+                {plan.name} {checkoutModal.billing} is selected at {formatMoney(billedMonthly)}/mo. The original page stays here while Polar handles payment.
               </p>
               <div className="df-checkout-actions">
                 {checkoutModal.checkoutUrl ? (
@@ -1124,7 +1124,7 @@ export default function App() {
             <div>
               <p className="df-eyebrow">Recommended next step</p>
               <h2>Use the fit console first, then keep Pro annual selected if the launch path is clear.</h2>
-              <p>Checkout stays in a centered Creem popup, with annual billing selected by default.</p>
+              <p>Checkout stays in a centered Polar popup, with annual billing selected by default.</p>
             </div>
             <div className="df-article-cta-actions">
               <button type="button" className="df-btn df-btn-primary" onClick={() => chooseProAnnual(`article-${page.path}`)}>

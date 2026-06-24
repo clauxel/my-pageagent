@@ -1,6 +1,6 @@
 # Page Agent
 
-PageAgent Space helps SaaS teams launch a page agent with in-page JavaScript control, action guardrails, analytics, and centered Creem checkout.
+PageAgent Space helps SaaS teams launch a page agent with in-page JavaScript control, action guardrails, analytics, and centered Polar checkout.
 
 Website: https://pageagent.space/
 Pricing: https://pageagent.space/pricing/

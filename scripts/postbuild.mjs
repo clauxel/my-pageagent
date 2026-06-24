@@ -13,7 +13,7 @@ const origin = 'https://pageagent.space'
 const siteName = 'PageAgent Space'
 const defaultTitle = 'Page Agent | In-Page AI Agent for SaaS Workflows'
 const defaultDescription =
-  'PageAgent Space helps SaaS teams launch a page agent with in-page JavaScript control, action guardrails, analytics, and centered Creem checkout.'
+  'PageAgent Space helps SaaS teams launch a page agent with in-page JavaScript control, action guardrails, analytics, and centered Polar checkout.'
 const defaultImage = `${origin}/assets/page-agent-workspace.png`
 
 const indexablePaths = [
@@ -141,7 +141,7 @@ await writeStaticPage('/privacy', {
     {
       heading: 'Providers and contact',
       paragraphs: [
-        'Cloudflare supports hosting and security infrastructure. Creem supports hosted checkout and payment processing.',
+        'Cloudflare supports hosting and security infrastructure. Polar supports hosted checkout and payment processing.',
         'Privacy and support requests should be sent to support@aigeamy.com.',
       ],
     },
@@ -186,8 +186,8 @@ await writeStaticPage('/terms', {
     {
       heading: 'Payments and third-party services',
       paragraphs: [
-        'Payments are processed by Creem in a hosted popup window. Successful checkouts return the user to the homepage.',
-        'Cloudflare, Creem, GitHub, model providers, browser tools, infrastructure providers, and other third-party services may be involved in hosting, checkout, integrations, or workflows.',
+        'Payments are processed by Polar in a hosted popup window. Successful checkouts return the user to the homepage.',
+        'Cloudflare, Polar, GitHub, model providers, browser tools, infrastructure providers, and other third-party services may be involved in hosting, checkout, integrations, or workflows.',
       ],
     },
     {
@@ -312,7 +312,7 @@ function buildHomePrerender() {
         <div>
           <p class="df-eyebrow">Page agent for production SaaS</p>
           <h1>Launch an in-page AI agent users can trust to act.</h1>
-          <p class="df-lede">Map one workflow, guard the actions, keep Pro annual selected, and open secure Creem checkout without losing the product page.</p>
+          <p class="df-lede">Map one workflow, guard the actions, keep Pro annual selected, and open secure Polar checkout without losing the product page.</p>
           <p><a class="df-btn df-btn-primary" href="/pricing">Choose Pro annual</a></p>
           <figure class="df-product-visual"><img src="/assets/page-agent-workspace.png" alt="Page Agent browser workflow preview"></figure>
         </div>

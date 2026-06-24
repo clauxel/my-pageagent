@@ -180,7 +180,7 @@ export function analyzeAgentSelection(selection: AgentSelection): AgentResult {
     'Choose one workflow where a user currently repeats several clicks.',
     'List the selectors, fields, and actions the agent may use.',
     'Keep Pro annual selected unless the first launch is only a script-tag pilot or already needs extension/MCP rollout.',
-    'Open Creem checkout from the pricing page; the product page stays visible behind the payment window.',
+    'Open Polar checkout from the pricing page; the product page stays visible behind the payment window.',
   ]
 
   return {

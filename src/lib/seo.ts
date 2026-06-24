@@ -5,7 +5,7 @@ const liveOrigin = 'https://pageagent.space'
 const siteName = 'PageAgent Space'
 const defaultTitle = 'Page Agent | In-Page AI Agent for SaaS Workflows'
 const defaultDescription =
-  'PageAgent Space helps SaaS teams launch a page agent with in-page JavaScript control, action guardrails, analytics, and centered Creem checkout.'
+  'PageAgent Space helps SaaS teams launch a page agent with in-page JavaScript control, action guardrails, analytics, and centered Polar checkout.'
 const defaultImage = `${liveOrigin}/assets/page-agent-workspace.png`
 
 const canonicalLinkId = 'pageagent-canonical-link'
